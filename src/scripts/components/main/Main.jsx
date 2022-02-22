@@ -3,7 +3,7 @@ import './main.scss';
 
 export default function Main() {
   return (
-    <div>
+    <div className="container">
       Main component
     </div>
   );
