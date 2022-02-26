@@ -1,0 +1,19 @@
+.repo {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: solid 2px lightgray;
+  margin-bottom: 15px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}
