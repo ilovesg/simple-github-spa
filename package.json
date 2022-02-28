@@ -1,6 +1,6 @@
 {
   "name": "webpack-react",
-  "homepage": ".",
+  "homepage": "https://ilovesg.github.io/simple-github-spa",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,9 @@
     "test:watch": "jest --watch",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "cross-env NODE_ENV=development webpack",
-    "start": "cross-env NODE_ENV=development webpack serve"
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +32,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-webpack-plugin": "^3.1.1",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.4.7",
