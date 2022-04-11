@@ -7,6 +7,7 @@ import './main.scss';
 export default function Main() {
   const dispatch = useDispatch();
   const repos = useSelector((state) => state.repos.items);
+  const isFetching = useSelector((state) => state.repos.isFetching);
 
   useEffect(() => {
     dispatch(getRepos());
