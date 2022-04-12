@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getRepos from '../../actions/repos';
 import Repo from '../repo/Repo';
@@ -8,6 +8,7 @@ export default function Main() {
   const dispatch = useDispatch();
   const repos = useSelector((state) => state.repos.items);
   const isFetching = useSelector((state) => state.repos.isFetching);
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     dispatch(getRepos());
@@ -16,8 +17,8 @@ export default function Main() {
   return (
     <div className="container">
       <div className="search">
-        <input type="text" className="search__input" placeholder="Input repo name" />
-        <button type="button" className="serach__button">Search</button>
+        <input value={searchValue} onChange={(event) => setSearchValue(event.target.value)} type="text" className="search__input" placeholder="Input repo name" />
+        <button onClick={() => dispatch(getRepos(searchValue))} type="button" className="serach__button">Search</button>
       </div>
       {
         isFetching
