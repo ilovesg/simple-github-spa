@@ -15,6 +15,10 @@ export default function Main() {
 
   return (
     <div className="container">
+      <div className="search">
+        <input type="text" className="search__input" placeholder="Input repo name" />
+        <button type="button" className="serach__button">Search</button>
+      </div>
       {repos.map((repo) => <Repo repo={repo} key={repo.id} />)}
     </div>
   );
