@@ -19,7 +19,11 @@ export default function Main() {
         <input type="text" className="search__input" placeholder="Input repo name" />
         <button type="button" className="serach__button">Search</button>
       </div>
-      {repos.map((repo) => <Repo repo={repo} key={repo.id} />)}
+      {
+        isFetching
+          ? <div className="preloader" />
+          : repos.map((repo) => <Repo repo={repo} key={repo.id} />)
+      }
     </div>
   );
 }
