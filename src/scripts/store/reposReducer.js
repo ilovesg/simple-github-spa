@@ -4,6 +4,9 @@ const SET_IS_FETCHING = 'SET_IS_FETCHING';
 const defaultState = {
   items: [],
   isFetching: true,
+  currentPage: 1,
+  reposPerPage: 10,
+  totalCount: 0,
 };
 
 export default function reposReducer(state = defaultState, { type, payload } = {}) {
