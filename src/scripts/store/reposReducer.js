@@ -1,4 +1,5 @@
 const SET_REPOS = 'SET_REPOS';
+const SET_IS_FETCHING = 'SET_IS_FETCHING';
 
 const defaultState = {
   items: [],
@@ -11,6 +12,12 @@ export default function reposReducer(state = defaultState, { type, payload } = {
       return {
         ...state,
         items: payload,
+        isFetching: false,
+      };
+    case SET_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: payload,
       };
 
     default:
@@ -19,3 +26,4 @@ export default function reposReducer(state = defaultState, { type, payload } = {
 }
 
 export const setRepos = (repos) => ({ type: SET_REPOS, payload: repos });
+export const setIsFetching = (isFetching) => ({ type: SET_IS_FETCHING, payload: isFetching });
