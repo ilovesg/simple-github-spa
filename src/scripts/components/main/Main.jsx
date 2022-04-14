@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getRepos from '../../actions/repos';
+import { setCurrentPage } from '../../store/reposReducer';
 import Repo from '../repo/Repo';
 import './main.scss';
 
@@ -31,7 +32,7 @@ export default function Main() {
           : repos.map((repo) => <Repo repo={repo} key={repo.id} />)
       }
       <ul className="pages-list">
-        {pages.map((page, index) => <li><button type="button" key={index} className={currentPage === page ? 'pages-list__button pages-list__button--current' : 'pages-list__button'}>{page}</button></li>)}
+        {pages.map((page, index) => <li><button type="button" key={index} className={currentPage === page ? 'pages-list__button pages-list__button--current' : 'pages-list__button'} onClick={() => dispatch(setCurrentPage(page))}>{page}</button></li>)}
       </ul>
     </div>
   );
