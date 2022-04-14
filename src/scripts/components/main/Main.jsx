@@ -8,6 +8,9 @@ export default function Main() {
   const dispatch = useDispatch();
   const repos = useSelector((state) => state.repos.items);
   const isFetching = useSelector((state) => state.repos.isFetching);
+  const currentPage = useSelector((state) => state.repos.currentPage);
+  const reposPerPage = useSelector((state) => state.repos.reposPerPage);
+  const totalCount = useSelector((state) => state.repos.totalCount);
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
