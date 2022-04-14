@@ -13,6 +13,8 @@ export default function Main() {
   const totalCount = useSelector((state) => state.repos.totalCount);
   const [searchValue, setSearchValue] = useState('');
 
+  const pages = [1, 2, 3, 4, 5];
+
   useEffect(() => {
     dispatch(getRepos());
   }, [dispatch]);
@@ -28,6 +30,9 @@ export default function Main() {
           ? <div className="preloader" />
           : repos.map((repo) => <Repo repo={repo} key={repo.id} />)
       }
+      <ul className="pages-list">
+        {pages.map((page, index) => <li><button type="button" key={index} className={currentPage === page ? 'pages-list__button pages-list__button--current' : 'pages-list__button'}>{page}</button></li>)}
+      </ul>
     </div>
   );
 }
