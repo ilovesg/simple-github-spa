@@ -17,14 +17,20 @@ export default function Main() {
   const pages = [1, 2, 3, 4, 5];
 
   useEffect(() => {
-    dispatch(getRepos());
-  }, [dispatch]);
+    dispatch(getRepos(searchValue, currentPage, reposPerPage));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, currentPage]);
+
+  const searchHandler = () => {
+    dispatch(setCurrentPage(1));
+    dispatch(getRepos(searchValue, currentPage, reposPerPage));
+  };
 
   return (
     <div className="container">
       <div className="search">
         <input value={searchValue} onChange={(event) => setSearchValue(event.target.value)} type="text" className="search__input" placeholder="Input repo name" />
-        <button onClick={() => dispatch(getRepos(searchValue))} type="button" className="serach__button">Search</button>
+        <button onClick={() => searchHandler()} type="button" className="serach__button">Search</button>
       </div>
       {
         isFetching
