@@ -9,7 +9,7 @@ function getRepos(searchValue, currentPage, reposPerPage) {
 
     const response = await axios.get(`https://api.github.com/search/repositories?q=${searchQuery}&page=${currentPage}&per_page=${reposPerPage}&sort=stars`);
 
-    dispatch(setRepos(response.data.items));
+    dispatch(setRepos(response.data));
   };
 }
 

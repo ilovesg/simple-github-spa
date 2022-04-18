@@ -15,7 +15,7 @@ export default function reposReducer(state = defaultState, { type, payload } = {
     case SET_REPOS:
       return {
         ...state,
-        items: payload,
+        items: payload.items,
         totalCount: payload.total_count,
         isFetching: false,
       };
