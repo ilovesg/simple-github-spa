@@ -1,8 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function Card() {
   const navigate = useNavigate();
+  const { username, repoName } = useParams();
 
   return (
     <div className="card">
