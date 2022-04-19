@@ -11,6 +11,8 @@ function App() {
         <Route path="/">
           <Route index element={<Main />} />
           <Route path="/card" element={<Card />} />
+
+          <Route path="*" element={<Main />} />
         </Route>
       </Routes>
     </BrowserRouter>
