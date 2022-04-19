@@ -13,6 +13,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,
+    publicPath: '/',
   },
   devServer: {
     static: './src',
