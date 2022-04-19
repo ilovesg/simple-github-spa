@@ -1,15 +1,19 @@
 import React from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Main from './main/Main';
+import Card from './card/Card';
 import './app.scss';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/">
+          <Route index element={<Main />} />
+          <Route path="/card" element={<Card />} />
+        </Route>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
