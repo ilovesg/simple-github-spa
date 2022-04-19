@@ -17,6 +17,7 @@ module.exports = {
   devServer: {
     static: './src',
     hot: true,
+    historyApiFallback: true,
   },
   devtool: (mode === 'development') ? 'source-map' : false,
   optimization: {
