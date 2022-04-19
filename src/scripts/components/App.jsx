@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<Main />} />
-          <Route path="/card" element={<Card />} />
+          <Route path="/card/:username/:repoName" element={<Card />} />
 
           <Route path="*" element={<Main />} />
         </Route>

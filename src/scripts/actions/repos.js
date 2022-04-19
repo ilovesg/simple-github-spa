@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { setRepos, setIsFetching } from '../store/reposReducer';
+import { setRepos, setRepo, setIsFetching } from '../store/reposReducer';
 
-function getRepos(searchValue, currentPage, reposPerPage) {
+export default function getRepos(searchValue, currentPage, reposPerPage) {
   return async (dispatch) => {
     const searchQuery = searchValue || 'stars:%3E1';
 
@@ -13,4 +13,10 @@ function getRepos(searchValue, currentPage, reposPerPage) {
   };
 }
 
-export default getRepos;
+export const getRepo = (username, repoName) => async (dispatch) => {
+  dispatch(setIsFetching(true));
+
+  const response = await axios.get(`https://api.github.com/repos/${username}/${repoName}`);
+
+  dispatch(setRepo(response.data));
+};
