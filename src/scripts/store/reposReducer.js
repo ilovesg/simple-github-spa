@@ -2,6 +2,7 @@ const SET_REPOS = 'SET_REPOS';
 const SET_IS_FETCHING = 'SET_IS_FETCHING';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_REPO = 'SET_REPO';
+const SET_ERROR = 'SET_ERROR';
 
 const defaultState = {
   items: [],
@@ -10,6 +11,7 @@ const defaultState = {
   reposPerPage: 10,
   totalCount: 0,
   repo: {},
+  error: {},
 };
 
 export default function reposReducer(state = defaultState, { type, payload } = {}) {
@@ -37,6 +39,12 @@ export default function reposReducer(state = defaultState, { type, payload } = {
         repo: payload,
         isFetching: false,
       };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: payload,
+        isFetching: false,
+      };
 
     default:
       return state;
@@ -47,3 +55,4 @@ export const setRepos = (repos) => ({ type: SET_REPOS, payload: repos });
 export const setIsFetching = (isFetching) => ({ type: SET_IS_FETCHING, payload: isFetching });
 export const setCurrentPage = (page) => ({ type: SET_CURRENT_PAGE, payload: page });
 export const setRepo = (repo) => ({ type: SET_REPO, payload: repo });
+export const setError = (error) => ({ type: SET_ERROR, payload: error });

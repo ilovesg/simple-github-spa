@@ -13,6 +13,7 @@ export default function Main() {
   const currentPage = useSelector((state) => state.repos.currentPage);
   const reposPerPage = useSelector((state) => state.repos.reposPerPage);
   const totalCount = useSelector((state) => state.repos.totalCount);
+  const error = useSelector((state) => state.repos.error);
   const [searchValue, setSearchValue] = useState('');
   const pagesCount = Math.ceil(totalCount / reposPerPage);
   const pages = [];
@@ -36,9 +37,12 @@ export default function Main() {
         <button onClick={() => searchHandler()} type="button" className="serach__button">Search</button>
       </div>
       {
+        // eslint-disable-next-line no-nested-ternary
         isFetching
           ? <div className="preloader" />
-          : repos.map((repo) => <Repo repo={repo} key={repo.id} />)
+          : error.name !== undefined
+            ? `${error.name}: ${error.message}!`
+            : repos.map((repo) => <Repo repo={repo} key={repo.id} />)
       }
       <ul className="pages-list">
         {pages.map((page, index) => <li><button type="button" key={index} className={currentPage === page ? 'pages-list__button pages-list__button--current' : 'pages-list__button'} onClick={() => dispatch(setCurrentPage(page))}>{page}</button></li>)}
