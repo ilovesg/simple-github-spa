@@ -13,7 +13,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,
-    publicPath: '/',
+    publicPath: '/simple-github-spa/',
   },
   devServer: {
     static: './src',
