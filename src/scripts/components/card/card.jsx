@@ -25,7 +25,11 @@ export default function Card() {
             <div className="card">
               <h1>{repo.name}</h1>
               <div className="card__img">
-                <img alt="" src={repo.owner.avatar_url} />
+                {
+                  repo.owner !== undefined
+                    ? <img alt="" src={repo.owner.avatar_url} />
+                    : 'Photo is unavailable.'
+                }
               </div>
               <div className="card__stars">
                 <strong>Stars:</strong>
